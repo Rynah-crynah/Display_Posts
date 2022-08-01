@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import ninah.example.my.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     var posts = response.body()
                     Toast.makeText(baseContext, "fetched ${posts!!.size} posts", Toast.LENGTH_LONG).show()
-                    var displayPostsRvAdapter = displayPostsRvAdapter(baseContext,posts)
+                    var displayPostsRvAdapter = displaypostsRvAdapter(baseContext,posts)
                     binding.rvDisplay.layoutManager = LinearLayoutManager(baseContext)
                     binding.rvDisplay.adapter = displayPostsRvAdapter
                 }

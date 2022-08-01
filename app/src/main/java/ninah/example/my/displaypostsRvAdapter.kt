@@ -3,13 +3,13 @@ package ninah.example.my
 import android.content.Context
 import ninah.example.my.databinding.PostListItemBinding
 
-class displaypostsRvAdapterimport android.content.Context
+//class displaypostsRvAdapterimport android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myposts.databinding.PostListItemBinding
+//import com.example.myposts.databinding.PostListItemBinding
 
-class displayPostsRvAdapter(var context: Context, var displayPost: List<Post>) :
+class displaypostsRvAdapter(var context: Context, var displayPost: List<Post>) :
     RecyclerView.Adapter<RetrofitviewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RetrofitviewHolder {
         var binding = PostListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
