@@ -1,6 +1,7 @@
 package ninah.example.my
 
 import android.content.Context
+import android.content.Intent
 import ninah.example.my.databinding.PostListItemBinding
 
 //class displaypostsRvAdapterimport android.content.Context
@@ -9,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 //import com.example.myposts.databinding.PostListItemBinding
 
-class displaypostsRvAdapter(var context: Context, var displayPost: List<Post>) :
+class displaypostsRvAdapter( var displayPost: List<Post>) :
     RecyclerView.Adapter<RetrofitviewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RetrofitviewHolder {
         var binding = PostListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -24,6 +25,15 @@ class displaypostsRvAdapter(var context: Context, var displayPost: List<Post>) :
             tvId.text = currentPosts.id.toString()
             tvTitle.text = currentPosts.title
             tvBody.text = currentPosts.body
+
+            cvComms.setOnClickListener {
+                var context= holder.itemView.context
+                val intent  = Intent(context,Comment_Activity::class.java)
+                intent.putExtra("POST_ID", currentPosts.id)
+
+                context.startActivity(intent)
+            }
+
         }
     }
 
@@ -31,5 +41,6 @@ class displaypostsRvAdapter(var context: Context, var displayPost: List<Post>) :
         return displayPost.size
     }
 }
-class RetrofitviewHolder(val binding: PostListItemBinding): RecyclerView.ViewHolder(binding.root) {
+class RetrofitviewHolder(val binding: PostListItemBinding):
+    RecyclerView.ViewHolder(binding.root) {
 }
