@@ -37,10 +37,10 @@ class Comment_Activity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     var post = response.body()
                     if (post != null) {
-                        binding.tvPostTitle.text = post.title
+                        binding.tvPosttitle.text = post.title
                     }
                     if (post != null) {
-                        binding.tvPostBody.text = post.body
+                        binding.tvPostbody.text = post.body
                     }
                 }
 
